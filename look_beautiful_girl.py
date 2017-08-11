@@ -8,14 +8,14 @@ def download(folder,url):
     req = requests.get(url)
     if req.status_code == requests.codes.ok:
         name = url.split('/')[-1]
-        f = open("./"+folder+'/'+name,'wb')
+        f = open("./"+folder+'/'+name, 'wb')
         f.write(req.content)
         f.close()
         return True
     else:
         return False
 
-header = {'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36'}
+header = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36'}
 
 errs=[]
 
@@ -44,11 +44,11 @@ def fetch(url):
             errors.append(img_url)
     return errors
 
-urls=['https://www.zhihu.com/question/22212644','https://www.zhihu.com/question/29814297',
-      'https://www.zhihu.com/question/31983868','https://www.zhihu.com/question/20399991']
-for url in urls :
+urls = ['https://www.zhihu.com/question/41031931', 'https://www.zhihu.com/question/22212644', 'https://www.zhihu.com/question/29814297',
+      'https://www.zhihu.com/question/31983868', 'https://www.zhihu.com/question/20399991']
+for url in urls:
     print(url)
-    errs+=fetch(url)
+    errs += fetch(url)
 
 print("ERROR URLS:")
 print(errs)
